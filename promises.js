@@ -47,9 +47,9 @@ const promise=createOrder(cart);
 promise.then(function (orderId){
     proceedToPayment(orderId)}); // then 
     //this function like
-    createOrder(cart,function(orderId){
-        proceedToPayment(orderId);
-    });
+createOrder(cart,function(orderId){
+    proceedToPayment(orderId);
+});
 
 /**in above case we attach the callback function to the promise object and in second one old one we were passes the callbback function to the another function 
  * so there is difference between the word attaching and passing in old one we pass the callback funtion to the another function api,
@@ -99,6 +99,26 @@ user.then(function(data){
  * promise is the object that represent the eventual complition of the asynchronous event(operation) because this asynchronous operation create order and it eventually be completed 
  * so promise is the object that representing eventual completion of async operation means eventually complete(means result is only two either false or true , either 1 or 0 , either success or failure ) and asynchronous
  */
+/**promise also help to resolve problem of callback hell also this can be handled by the promise chaining 
+ * so we write above callback hell code using promise like this
+ */
+createorder(cart).then(function(orderId){
+    return proceedToPayment(orderId);
+}).then(function(paymentInfo){
+    return showOrderSummery(paymentInfo);
+}).then(function(){
+    return updateWallet();
+});// show whenever you perform chaining you should attain that there should be return all the function callvback function
 
-
+//some developper write these code with the help of arrow function
+createorder(cart).then(orderId=>proceedToPayment(orderId)).then(paymentInfo=>showOrderSummery(paymentInfo)).then(()=>updateWallet());
+/**recape
+ * so how we can handle our async code using callback and there is major issue into the callback while using callback that is inversion of control we were passing a function inside the another api
+ * and we were given the control of program to some other api which i wanted to avoid and how did we solve it
+ * basically had a promise object and that promise object will be eventually fill with the result of async operation 
+ * and we dont pass a function to the another function so what we do it we attach the callback function to the promise object
+ * and whenever we have data inside or whenever the promise id resolved that callback function automaticaly called by proises 
+ * you resolve promice just once and there is ionly three state one is fullfilled ,pending , rejecting
+ * 
+ */
 
