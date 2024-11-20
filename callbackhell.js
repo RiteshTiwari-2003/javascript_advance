@@ -55,4 +55,16 @@ api.createOrder(card,function(){
 api.createOrder(card,function(){
     api.proceedPayment();
 });
-/**in these above code we xcreate a callback function and give it to the createOrder api. */
+/**in these above code we xcreate a callback function and give it to the createOrder api.and now we as a developer sitting back in chill
+ * and we are blidling trusting create order api how we are blidly trusting we gave this callback function to create order api ,
+ * now we are accepted that create order api create order and after this call the function,is it not risky? it is very risky
+ * how it is risky because this is the importent peace of our code and we gave the control of program to our create order api
+ * now it is responsibilty of create order api to call our function proceed payment back,
+ * and we are blindly trusting create order api, now we dont know create order api must have been in other service or some other developer wrote it or an intern wrote it.
+ * right there could be a lot of bugs inside it
+ * what if our callback function never called can happen you dont know, we are just blinding trusting ,
+ * what if our callback function called twice because we dont k ow what happen in the api,
+ * whenevr this call back function called by some other function, we give the control of function some other function or piece of code
+ * and we dont know what happen behind the since now
+ * this is the verry importent problem we face when we use callback,
+ */
