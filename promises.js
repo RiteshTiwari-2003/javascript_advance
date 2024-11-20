@@ -57,7 +57,18 @@ promise.then(function (orderId){
  * and now control of program with us and promises gives this control to us and promises give us this trust and garantee that it will call this callback function whenever there is data inside the promise object
  * and in earlier piece of code we have lot of doubts that what hve this createorder api might have call the function twice thrice and might never call it
  * promise handle it peacefully
- * in new one as soon as the data inside the promise it call the callback function and proceed payment definetly
+ * in new one as soon as the data inside the promise it call the callback function and proceed payment definetly, and it will call it once and only once 
+ * 
+ */
+
+/**now we have see the how the promise object look actually
+ */
+const GITHUB_API="https://api.github.com/users/akshaymarch7";
+const user=fetch(GITHUB_API); // as soon this executed a promise object come into user variable , it return us a promise
+/**on console when we put debugger on line 67 then already before executing there is key value come as like user : undefined in script scope and global scope already present also
+ * and as soon we execute this we get a promise object,in promise objectthere is the prototype present and also promisestate key present which value is "pending" 
+ * there is two seperate thing one is promisestate and one is promiseresult promiseresult show whatever result it returning and promise state till whenever the data is not find by promise object till that time promise object show pending status but as soon the data return to the promise the status changed into fullfilled state
+ * 
  */
 
 
