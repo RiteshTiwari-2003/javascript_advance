@@ -68,6 +68,25 @@ const user=fetch(GITHUB_API); // as soon this executed a promise object come int
 /**on console when we put debugger on line 67 then already before executing there is key value come as like user : undefined in script scope and global scope already present also
  * and as soon we execute this we get a promise object,in promise objectthere is the prototype present and also promisestate key present which value is "pending" 
  * there is two seperate thing one is promisestate and one is promiseresult promiseresult show whatever result it returning and promise state till whenever the data is not find by promise object till that time promise object show pending status but as soon the data return to the promise the status changed into fullfilled state
+ * but when we prin console.log(user); it print on console promise <pending> but if we expend this it show promisestatus as fullfilled
+ * it show pending and on opening it also show fullfilled but why its reason  is 
+ * when data fetch the data on line 67 then it took some time because it is async operation and it take time to fetch the data from the website and bring it here but javascript does not wait for anyone so it move forward so because of this it show pending but if we open this then 
+ * there it shows current status so pending status till now become fullfilled status , and in promise object promiseresult value which is undefined when from data no any reponse come or when status in pending status at that time
+ * the value of promiseresult shown undefined but at this current time when data return from fetch function then promiseresult value become response which is an object
+ * and in these various key present
+ */
+// now some callback attach with this promise object ;like this
+user.then(function(data){
+    console.log(data);
+});//in these the data is just that thing which present in promise object promiseresult section, and thats how we attach callback to the promise, when i save this we find data as a response object on console
+
+/**promise object is the spacial object in javascript and this is garantee that promise object only resolve once either a success or faliure 
+ * either it will fullfill orr rejected also 
+ * there is only three state inside the promise one is pending state one is fullfilled state and one is rejected state
+ * 
+ * and one more thing that promise object are immutable what does that means whenever data inside the promise object we can pass only here and there
+ * and dont have to worry about someone can mutate the data, this is sos sos so great as adeveloper 
+ * 
  * 
  */
 
