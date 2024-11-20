@@ -6,7 +6,11 @@ const cart=["shoes","pants","kurta"];
  * 
  */
 createOrder(cart,function(orderId){
-    proceedToPayment(orderId);
+    proceedToPayment(orderId,function(paymentInfo){
+        showorderSummery(paymentInfo,function(){
+            updateWalletBalance();//so this called callback hell beacause code grow horizently instead of vertically
+        });
+    });
 });
 /**now this is responsibility of crweate order api to create order and execute or call the callback function after that
  * but in this very importent issue we faces which is inversion of control, because we blidly trusted on create order api for call the callback function 
@@ -87,7 +91,13 @@ user.then(function(data){
  * and one more thing that promise object are immutable what does that means whenever data inside the promise object we can pass only here and there
  * and dont have to worry about someone can mutate the data, this is sos sos so great as adeveloper 
  * 
- * 
+ * what is the  promise in javascript what is the best answer for telling to the interviwer
+ * somepeople call this promise as a placeholder which will be filled later with the value
+ * promise object is the placeholder for a certain period of time untill we receive the value from the asynchronous operation is'nt it? yes
+ * somebody tell that a container for the future value
+ * the promise is an object thatrepresent an eventual completion of an asynchronous event
+ * promise is the object that represent the eventual complition of the asynchronous event(operation) because this asynchronous operation create order and it eventually be completed 
+ * so promise is the object that representing eventual completion of async operation means eventually complete(means result is only two either false or true , either 1 or 0 , either success or failure ) and asynchronous
  */
 
 
