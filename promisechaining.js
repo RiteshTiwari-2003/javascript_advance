@@ -5,8 +5,10 @@
 const cart=["shoes","pants","kurta"];
 const promise=createOrder(cart);
 console.log(promise);//when you see output on console Promise {<pending>} show why here see pending because in line 6 ceate order take 5 second to resolve means it return promise after 5 second from it is caqlled at that tiem js not waiting for it and come on this line so here is shown pending because at that time there is pending, so when we run the output Promise {<pending>} come and after 5 second in next line 12345 printed
-promise.then(function(orderId){console.log(orderId);}).then(function(){
-    proceedToPayment(orderId);
+promise.then(function(orderId){console.log(orderId);
+    return orderId;
+}).then(function(){
+    return proceedToPayment(orderId);
 }).then(function(paymentInfo){
     console.log(paymentInfo);
 
@@ -68,4 +70,5 @@ function validateCart(cart){
 
 /**now we checking promise chaining and also add proceedToPayment method  
  * we add using then keyword also proceedToPayment proceedToPayment also return promise
+ * in promise chaining either each function return promise 0or data
 */
