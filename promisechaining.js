@@ -7,13 +7,13 @@ const promise=createOrder(cart);
 console.log(promise);//when you see output on console Promise {<pending>} show why here see pending because in line 6 ceate order take 5 second to resolve means it return promise after 5 second from it is caqlled at that tiem js not waiting for it and come on this line so here is shown pending because at that time there is pending, so when we run the output Promise {<pending>} come and after 5 second in next line 12345 printed
 promise.then(function(orderId){console.log(orderId);
     return orderId;
+}).catch(function(err){
+    console.log(err.message);// now on console printed the class is not ready
 }).then(function(){
     return proceedToPayment(orderId);
 }).then(function(paymentInfo){
     console.log(paymentInfo);
 
-}).catch(function(err){
-    console.log(err.message);// now on console printed the class is not ready
 }); // now we attch faliure callback also to the promise object
 /**how does we return promise from createorder api then we have knowledge about thaty how we create order and send or return the pronise to the consumer 
  * this is the consumer part now we create producing part 
@@ -71,4 +71,7 @@ function validateCart(cart){
 /**now we checking promise chaining and also add proceedToPayment method  
  * we add using then keyword also proceedToPayment proceedToPayment also return promise
  * in promise chaining either each function return promise 0or data
+ * WE ATTACH CATCH METHOD FROM LAST TO SECOND POSITION AFTER first then because in first then method if card is not valid and give false result then error occur and after this then all then method not executed but if we attach catch method just after this 
+ * catch resolve error or handle error and move to other then for execution
+ * 
 */
