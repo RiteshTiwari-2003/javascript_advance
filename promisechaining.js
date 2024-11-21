@@ -5,7 +5,12 @@
 const cart=["shoes","pants","kurta"];
 const promise=createOrder(cart);
 console.log(promise);//when you see output on console Promise {<pending>} show why here see pending because in line 6 ceate order take 5 second to resolve means it return promise after 5 second from it is caqlled at that tiem js not waiting for it and come on this line so here is shown pending because at that time there is pending, so when we run the output Promise {<pending>} come and after 5 second in next line 12345 printed
-promise.then(function(orderId){console.log(orderId);}).catch(function(err){
+promise.then(function(orderId){console.log(orderId);}).then(function(){
+    proceedToPayment(orderId);
+}).then(function(paymentInfo){
+    console.log(paymentInfo);
+
+}).catch(function(err){
     console.log(err.message);// now on console printed the class is not ready
 }); // now we attch faliure callback also to the promise object
 /**how does we return promise from createorder api then we have knowledge about thaty how we create order and send or return the pronise to the consumer 
@@ -48,6 +53,11 @@ function createOrder(cart){
     return pr;
 
 }
+function proceedToPayment(orderId){
+    return new Promise(function(resolve,reject){
+        resolve("payment successfull");
+    });
+}
 function validateCart(cart){
     return true;
 
@@ -56,4 +66,6 @@ function validateCart(cart){
 // then now as a consumer we just written success part like in line 8 , but what if it fail how do we write the code so now for that promise also comes
 //with one more function thst is known as catch
 
-/**now we checking promise chaining and also add proceedToPayment method  */
+/**now we checking promise chaining and also add proceedToPayment method  
+ * we add using then keyword also proceedToPayment proceedToPayment also return promise
+*/
