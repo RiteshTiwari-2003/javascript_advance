@@ -73,5 +73,6 @@ function validateCart(cart){
  * in promise chaining either each function return promise 0or data
  * WE ATTACH CATCH METHOD FROM LAST TO SECOND POSITION AFTER first then because in first then method if card is not valid and give false result then error occur and after this then all then method not executed but if we attach catch method just after this 
  * catch resolve error or handle error and move to other then for execution
+ * so after we push the catch above in the code output is card is not valid and payment is successfull
  * 
 */
