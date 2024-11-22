@@ -41,5 +41,8 @@
  * ut what if i want to result of other promise success means if any one promise rejected but other promise selected then how i print other promise succeess
  * 
  * like if 10 api call result one is rehjected but i want other nine successfully result.
+ * so in that case we have one more promise api to handle thst case is promise.allsetteled ([p1,p2,p3]) if all of them get successful (p1,p2, and p3)
+ * p1 get 3 second , p2 get 1 second p3 get 2 second, so after 3 second all promise get result [val1,val2,val3] 
  * 
+ * but what if my p2 get rejected , it get rejected in 1 second , it will still wait for all promise to fullfill
  */
