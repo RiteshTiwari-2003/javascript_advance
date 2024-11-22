@@ -66,5 +66,23 @@
  * as soon as first promise resolved that is after 1 second then what will be you do after 1 second it will give me the result of val2 
  * let me know this is not array this is a value val2 i represent around small bracket , this is the value of the first settled promise 
  * 
+ * after 1 second whatever the value p2 will have give that value as a val2
+ * let suppose p1 take 3 second p2 take 5 second and p3 take 2 second then after 3 second the p3 givee the value val3
  * 
+ * so i am trying to say it is the race wahtever promise setteled first you will get the result .
+ * now importent question when the first promise get successful what if the first promise get error, what if this promise got rejected 
+ * what if after 2 second p3 will fail, what will hapeen error will be thrown, this error come from p3, so what will happen it will return the result
+ * of first setteked promise
+ * 
+ * 
+ * so whether it's kind of like a race first promice whatever is resolved in the array whether it is success whether it is failure it will throw it will return a result 
+ * it will not wait for other promise to finish.
+ * 
+ * lets go for next promise api it is promise.any
+ * it again take list of promise and array of promises and [p1,p2,p3] and we have this array of promises , now it is verymuch similer to race ,whenever the first promise got 
+ * resolved the only different is it will wait for the first promise to get successful,
+ * in promise.race if tou get first result either success or failure it will return the result 
+ * but in promise.any it will wait for first success result
+ * but what if every thing hre fail all the api called fail then the return result will be an aggregated error when all of them will be failed it return will be error obiuously
+ * but this time it will aggregate error and this aggregate error will be array of all the three error[err1,err2,err3]
  */
