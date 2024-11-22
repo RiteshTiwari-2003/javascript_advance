@@ -48,4 +48,18 @@
  * it will wait for all the promise complete, after 1 second p2 promise get failed after 2 second p3 get success 
  * 
  * so it will get three secend to all these got setteled irrespective of success or failure it will give you all the failure 
+ * it will give you val1 and err2 and val3 as a result, the output over here always be a array of the same number of element that you pass as the input
+ * so basically this both promise.all and promise.allsettled are same but error handling of these is only differnet 
+ * 
+ * promise.all kind a fail fast, so even if one fail it will quicly give a result that one fail, and
+ * in promise.allsetteled is just wait for all promise result and then we will take action acordingly 
+ * 
+ * just like it also depend upon use case also suppose you made 5 api call and if you really needed the result of all these five api calls to show a web page 
+ * then you will use promise.all but suppose if you are showing five cards on your page and these five cards are populated by five api calls one of them fails just show four cards 
+ * in that caase you use promise.allsetteled so thre are differrent use cases promise.any promise.all promise.allsetteled
+ * use according to your use.
+ * 
+ * 
+ * 
+ * 
  */
