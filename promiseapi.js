@@ -44,5 +44,8 @@
  * so in that case we have one more promise api to handle thst case is promise.allsetteled ([p1,p2,p3]) if all of them get successful (p1,p2, and p3)
  * p1 get 3 second , p2 get 1 second p3 get 2 second, so after 3 second all promise get result [val1,val2,val3] 
  * 
- * but what if my p2 get rejected , it get rejected in 1 second , it will still wait for all promise to fullfill
+ * but what if my p2 get rejected , it get rejected in 1 second , it will still wait for all promise to fullfill, after 3 second even after one promise get failed 
+ * it will wait for all the promise complete, after 1 second p2 promise get failed after 2 second p3 get success 
+ * 
+ * so it will get three secend to all these got setteled irrespective of success or failure it will give you all the failure 
  */
