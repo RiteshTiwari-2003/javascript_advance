@@ -62,7 +62,9 @@
  * 3. 3rd promise api that maximum people use is promise.race
  * 
  * so promise.race take again array of promise [p1,p2,p3] , its race now , the person who will finish first will be the winner , the person who will finish the race be winner .
- * 
+ * suppose p1 take 3 second , p2 takes 1 second , p3 takes 2 second 
+ * as soon as first promise resolved that is after 1 second then what will be you do after 1 second it will give me the result of val2 
+ * let me know this is not array this is a value val2 i represent around small bracket , this is the value of the first settled promise 
  * 
  * 
  */
