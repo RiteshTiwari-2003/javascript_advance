@@ -59,6 +59,9 @@
  * in that caase you use promise.allsetteled so thre are differrent use cases promise.any promise.all promise.allsetteled
  * use according to your use.
  * 
+ * 3. 3rd promise api that maximum people use is promise.race
+ * 
+ * so promise.race take again array of promise [p1,p2,p3] , its race now , the person who will finish first will be the winner , the person who will finish the race be winner .
  * 
  * 
  * 
