@@ -35,4 +35,7 @@
  * 
  * immediatly as soon as error occur means after 1 second you will see an error , it will not even wait for other promises to get successfull
  * or rejected or whatever , right now it is just tone second , and it will throw an error 
+ * now what will happen with p1 and p3 now 
+ * so whenever the promise is created you can not distroy promise and remove promise or cancel the promise these promise eventually reject or accept it all depend on their fate,
+ * but promise.all rejected as soon as any of the promise rejected 
  */
